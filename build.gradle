@@ -6,9 +6,13 @@ project.ext {
 
 dependencies {
     testImplementation 'io.cucumber:cucumber-java:' + cucumberVersion
-    testImplementation 'io.cucumber:cucumber-junit:' + cucumberVersion
+    testImplementation 'io.cucumber:cucumber-junit-platform-engine:' + cucumberVersion
 }
 
 repositories {
     mavenCentral()
+}
+
+test {
+    useJUnitPlatform()
 }
