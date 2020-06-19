@@ -1,4 +1,8 @@
-apply plugin: 'java'
+plugins {
+    id 'java'
+    id 'com.gradle.enterprise.test-distribution' version '1.0.2'
+    id 'org.gradle.test-retry' version '1.1.6'
+}
 
 project.ext {
     cucumberVersion = '6.1.1'
@@ -15,4 +19,11 @@ repositories {
 
 test {
     useJUnitPlatform()
+    distribution {
+        enabled = true
+        maxRemoteExecutors = 0
+    }
+    retry {
+        maxRetries = 1
+    }
 }
